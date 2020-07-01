@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Film List</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>YEAR</th>
+        <th>TITLE</th>
+        <th>DIRECTOR</th>
+    </tr>
+    <tr th:each="film: ${filmApiList}">
+        <td th:text="${film.getYear()}"></td>
+        <td th:text="${film.getTitle()}"></td>
+        <td th:text="${film.getDirector()}"></td>
+    </tr>
+</table>
+<form action="#" th:action="@{/filmshow}"  th:object="${filmApi}" method="post">
+    <p>Film: <input type="text" th:field = "*{title}"></p>
+        <button type="submit">Show Film</button>
+</form>
+<p><a th:href="@{/filmapilist}"> Go to Base Film List </a></p>
+</body>
+</html>

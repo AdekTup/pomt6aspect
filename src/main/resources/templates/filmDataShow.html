@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p><a th:href="@{/filmapilist}"> Go to Base Film List </a></p>
+
+<table>
+    <tr>
+        <th>TITLE</th>
+        <th>DIRECTOR</th>
+        <th>TYPE</th>
+        <th>ACTORS</th>
+        <th>YEAR</th>
+    </tr>
+    <tr>
+        <td th:text="${filmApi.getTitle()}"></td>
+        <td th:text="${filmApi.getDirector()}"></td>
+        <td th:text="${filmApi.getType()}"></td>
+        <td th:text="${filmApi.getActors()}"></td>
+        <td th:text="${filmApi.getYear()}"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td th:text="${filmApi.getPlot()}"></td>
+    </tr>
+    <tr th:each="imag : ${filmApi.getImages()}">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><img th:width="500px" th:src="${imag}" /></td>
+
+    </tr>
+
+</table>
+
+</body>
+</html>
